@@ -27,7 +27,7 @@ export function Footer() {
             </li>
             <li className={styles.contactList}>
               <a href="https://www.whatsapp.com/?lang=uk">
-                <img className={styles.footerImg} src="./src/img/whatsapp.png" alt="" />
+                <img className={styles.footerImg} src="../../img/whatsapp.png" alt="" />
               </a>
             </li>
           </ul>
