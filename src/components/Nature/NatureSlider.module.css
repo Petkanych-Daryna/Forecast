@@ -1,0 +1,34 @@
+@media (min-width: 320px) {
+  .section {
+    display: none;
+  }
+}
+@media (min-width: 1024px) {
+    .section {
+        display: block;
+  padding: 60px 20px;
+}
+
+.title {
+  font-size: 32px;
+  margin-bottom: 40px;
+  font-weight: 600;
+}
+
+.card {
+  height: 300px;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.splide__slide.is-active .card {
+  transform: scale(1.1);
+}
+}

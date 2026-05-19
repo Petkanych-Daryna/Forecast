@@ -1,0 +1,81 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background-color: white;
+  padding: 40px;
+  border-radius: 24px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.title {
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.input {
+  background-color: #e8e8e8;
+      color: black;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 15px;
+  font-size: 14px;
+  outline: none;
+}
+
+.submitBtn {
+  background-color: #ffb36c;
+  color: black;
+  border: none;
+  border-radius: 12px;
+  padding: 12px;
+  font-weight: 600;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.submitBtn:hover {
+  background-color: #f7a451;
+}
+
+.footerText {
+  text-align: center;
+  font-size: 12px;
+  margin-top: 15px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.link {
+  color: #000;
+  text-decoration: underline;
+  cursor: pointer;
+}

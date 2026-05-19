@@ -1,0 +1,184 @@
+
+
+.heroImg {
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(../../img/heroPhone.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.titleDiv {
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+  margin-bottom: 30px;
+}
+
+.mainTitle {
+  color: white;
+  font-size: 28px;
+  text-align: center;
+  margin: 0;
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start; 
+  margin-bottom: 40px;
+}
+
+
+.fixLine {
+  width: 100%;
+  box-sizing: border-box;
+  border-left: 2px solid white; 
+  padding-left: 20px;
+  margin-left: 20px;
+
+  display: flex;
+  flex-direction: column; 
+}
+
+.textFirst {
+  color: white;
+  width: 260px; 
+  font-size: 14px;
+  line-height: 1.4;
+  text-align: left;
+}
+
+.textSec {
+  color: white;
+  font-size: 14px;
+  margin: 0;
+  text-align: left;
+}
+
+
+.textFirst, .textSec {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+}
+
+.heroBtnInt {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+  padding-bottom: 60px;
+}
+
+.heroInt {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  padding: 12px 15px;
+  color: white;
+  outline: none;
+}
+
+.heroBtn {
+  background-color: #f7a451;
+  border: none;
+  border-radius: 8px;
+  width: 45px;
+  height: 44px;
+  cursor: pointer;
+}
+
+
+
+@media (min-width: 529.9px) {
+  .heroImg {
+    background:
+      linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url(../../img/heroIpad.png);
+    background-repeat: no-repeat;
+    margin: 0;
+    background-size: cover;
+    background-position: center;
+  }
+
+ 
+  .fixLine {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-left: none; 
+    padding-left: 0;
+    margin-left: 0;
+  }
+
+ 
+  .textFirst {
+    text-align: right;
+    width: 260px;
+    padding-right: 20px;
+    border-right: 2px solid white; 
+  }
+
+
+  .textSec {
+    text-align: left;
+    width: 200px;
+    padding-left: 20px;
+  }
+}
+
+
+@media (min-width: 544.9px) {
+  .heroImg {
+    background:
+      linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url(../../img/heroDesktop.png);
+    background-repeat: no-repeat;
+    margin: 0;
+    background-size: cover;
+    background-position: center;
+    height: 345px;
+  }
+
+  .heroDiv {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+  }
+  
+  .titleDiv {
+    margin-bottom: 40px;
+  }
+  .textFirst {
+    width: 192px;
+  }
+  
+}
+@media (min-width: 1200px) {
+  .heroImg {
+    background:
+      linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url(../../img/heroDesktop.png);
+    background-repeat: no-repeat;
+    margin: 0;
+    background-size: cover;
+    background-position: center;
+    height: 500px;
+  }
+    .textFirst {
+    font-size: 18px;
+  }
+    .textSec {
+    font-size: 18px;
+  }
+  .content {
+    margin-top: 50px;
+}
+  
+}
