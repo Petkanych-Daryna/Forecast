@@ -8,7 +8,7 @@ export function NatureSlider() {
 
   useEffect(() => {
     fetch(
-      `https://pixabay.com/api/?key=52746634-048ebfd846d8921f5de123532&q=nature&image_type=photo&per_page=10`,
+      `https://pixabay.com/api/?key=52746634-048ebfd846d8921f5de123532&q=nature&image_type=photo&per_page=30`,
     )
       .then((res) => res.json())
       .then((data) => setImages(data.hits));
