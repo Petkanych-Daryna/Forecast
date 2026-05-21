@@ -3,6 +3,8 @@ import { MobileMenu } from "../Modal/MobileMenu/MobileMenu";
 import { AuthModal } from "../Modal/IpadMenu/AuthModal";
 import cont from "../container.module.css";
 import styles from "./Header.module.css";
+import logo from "../../img/logo.png"
+import humen from "../../img/humen.png"
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,7 +15,7 @@ export function Header() {
     <header className={`${styles.header} ${cont.container}`}>
       <div className={styles.headerTop}>
         <div className={styles.logo}>
-          <img src="./src/img/logo.png" alt="24/7 forecast" />
+          <img src={logo} alt="24/7 forecast" />
         </div>
 
         <div className={styles.rightSide}>
@@ -38,7 +40,7 @@ export function Header() {
               </button>
             )}
             <div className={styles.avatar}>
-              <img src="./src/img/humen.png" alt="User profile" />
+              <img src={humen} alt="User profile" />
             </div>
           </div>
         </div>
