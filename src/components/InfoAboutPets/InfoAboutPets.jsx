@@ -1,14 +1,17 @@
 import { useState, useEffect, useCallback } from "react";
 
 import styles from "./InfoAboutPets.module.css";
+
 import cont from "../container.module.css";
 
 export function InfoAboutPets() {
   const [articles, setArticles] = useState([]);
+
   const [page, setPage] = useState(1);
+
   const [loading, setLoading] = useState(false);
 
-  const API_KEY = "3a5d9c01f54145116c9341d48b1d77b3";
+  const API_KEY = "c502a3763fe54ccb9d32262f008ae01d";
 
   const fetchNews = useCallback(
     async (pageNum) => {
@@ -16,7 +19,7 @@ export function InfoAboutPets() {
 
       try {
         const response = await fetch(
-          `https://gnews.io/api/v4/search?q=pets+OR+animals+OR+dogs+OR+cats&in=title,description&lang=en&max=4&page=${pageNum}&apikey=${API_KEY}`,
+          `https://newsapi.org/v2/everything?q=pet&searchIn=title&language=en&pageSize=4&page=${pageNum}&apiKey=${API_KEY}`,
         );
 
         const data = await response.json();
@@ -38,6 +41,7 @@ export function InfoAboutPets() {
         setLoading(false);
       }
     },
+
     [API_KEY],
   );
 
@@ -47,7 +51,9 @@ export function InfoAboutPets() {
 
   const handleLoadMore = () => {
     const nextPage = page + 1;
+
     setPage(nextPage);
+
     fetchNews(nextPage);
   };
 
@@ -63,8 +69,8 @@ export function InfoAboutPets() {
                 <img
                   className={styles.img}
                   src={
-                    article.image
-                      ? article.image
+                    article.urlToImage
+                      ? article.urlToImage
                       : "https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=1200&auto=format&fit=crop"
                   }
                   alt={article.title}
