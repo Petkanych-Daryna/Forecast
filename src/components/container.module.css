@@ -1,9 +1,10 @@
 .container {
     /* padding: 0 15px; */
-    width: 100%;
+
 
     @media (min-width: 768px) {
         width: 768px;
+        
 
     }
 

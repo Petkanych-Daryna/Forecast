@@ -1,5 +1,3 @@
-
-
 .heroImg {
   background:
     linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
@@ -29,25 +27,25 @@
 .content {
   width: 100%;
   display: flex;
-  justify-content: flex-start; 
+  justify-content: center;
   margin-bottom: 40px;
+  flex-wrap: wrap;
 }
-
 
 .fixLine {
   width: 100%;
   box-sizing: border-box;
-  border-left: 2px solid white; 
+  border-left: 2px solid white;
   padding-left: 20px;
   margin-left: 20px;
 
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
 }
 
 .textFirst {
   color: white;
-  width: 260px; 
+  width: 260px;
   font-size: 14px;
   line-height: 1.4;
   text-align: left;
@@ -60,9 +58,9 @@
   text-align: left;
 }
 
-
-.textFirst, .textSec {
-  font-family: 'Montserrat', sans-serif;
+.textFirst,
+.textSec {
+  font-family: "Montserrat", sans-serif;
   font-weight: 500;
 }
 
@@ -73,6 +71,7 @@
   gap: 10px;
   margin-top: auto;
   padding-bottom: 60px;
+  margin-top: 25px;
 }
 
 .heroInt {
@@ -92,8 +91,25 @@
   height: 44px;
   cursor: pointer;
 }
+.contentBox {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: column;
+}
+@media (min-width: 320px) {
+  .fixLine {
+    width: 100%;
+    box-sizing: border-box;
+    border-left: none;
+    padding-left: 20px;
+    margin: 0;
 
-
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+}
 
 @media (min-width: 529.9px) {
   .heroImg {
@@ -104,26 +120,25 @@
     margin: 0;
     background-size: cover;
     background-position: center;
+    height: 345px;
+    width: 100%;
   }
 
- 
   .fixLine {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    border-left: none; 
+    border-left: none;
     padding-left: 0;
     margin-left: 0;
   }
 
- 
   .textFirst {
     text-align: right;
     width: 260px;
     padding-right: 20px;
-    border-right: 2px solid white; 
+    border-right: 2px solid white;
   }
-
 
   .textSec {
     text-align: left;
@@ -131,9 +146,15 @@
     padding-left: 20px;
   }
 }
-
-
-@media (min-width: 544.9px) {
+@media (min-width: 760px) {
+  .contentBox {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: row;
+  }
+}
+@media (min-width: 1024px) {
   .heroImg {
     background:
       linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
@@ -147,18 +168,17 @@
 
   .heroDiv {
     display: flex;
-    flex-direction: column;
+
     align-content: center;
     align-items: center;
   }
-  
+
   .titleDiv {
     margin-bottom: 40px;
   }
   .textFirst {
     width: 192px;
   }
-  
 }
 @media (min-width: 1200px) {
   .heroImg {
@@ -171,14 +191,13 @@
     background-position: center;
     height: 500px;
   }
-    .textFirst {
+  .textFirst {
     font-size: 18px;
   }
-    .textSec {
+  .textSec {
     font-size: 18px;
   }
   .content {
     margin-top: 50px;
-}
-  
+  }
 }

@@ -4,11 +4,11 @@
   left: 0;
   width: 100%;
   height: 100vh;
-  background: rgb(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.3);
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s ease-in-out;
-  overflow: auto;
+  z-index: 999;
 }
 
 .isOpen {
@@ -25,23 +25,30 @@
   align-items: flex-start;
   transform: translateY(-20px);
   transition: transform 0.3s ease-in-out;
-  margin: 19px 0;
 }
 
+.isOpen .content {
+  transform: translateY(0);
+}
 
 .navList {
   padding: 0;
   margin: 0;
+  list-style: none;
 }
-.list{
-    padding: 0;
+
+.list {
+  padding: 0;
+  margin: 10px 0;
 }
+
 .userSection {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 15px;
 }
+
 .profileIcon {
   width: 50px;
   height: 50px;
@@ -52,22 +59,23 @@
   align-items: center;
   color: white;
 }
-.iconPlaceholder{
-    width: 40px;
-    height: 40px;
+
+.iconPlaceholder {
+  width: 40px;
+  height: 40px;
 }
-.signupBtn{
-    background: #ffb370;
-    border: none;
-    border-radius: 12px;
-    padding: 10PX 25px;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
+
+.signupBtn {
+  background: #ffb370;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 25px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .userNameText {
-  font-family: 'Montserrat', sans-serif;
   font-weight: 600;
   font-size: 16px;
   color: #000;

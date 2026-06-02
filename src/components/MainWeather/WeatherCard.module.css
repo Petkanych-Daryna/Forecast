@@ -55,7 +55,7 @@
   border-radius: 30px;
   display: flex;
   gap: 15px;
-  width: 85%;
+  width: 80%;
   flex-wrap: wrap;
   justify-content: space-around;
 }
@@ -77,4 +77,17 @@
 .detailItem h3 {
   margin: 5px 0 0 0;
   font-size: 18px;
+}
+
+@media (min-width: 768px) {
+  .detailsContainer {
+  background: #e0e0e0;
+  padding: 30px 20px;
+  border-radius: 30px;
+  display: flex;
+  gap: 15px;
+  width: 80%;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+}
 }

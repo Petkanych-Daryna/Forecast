@@ -1,8 +1,8 @@
 import styles from "./Footer.module.css";
 import logo from "../../img/logo.png"
-import instagram from "../../img/instagram.png"
-import facebook from "../../img/facebook.png"
-import whatsapp from "../../img/whatsapp.png"
+import instagram from "../../img/instagram.svg"
+import facebook from "../../img/facebook.svg"
+import whatsapp from "../../img/whatsapp.svg"
 
 
 export function Footer() {

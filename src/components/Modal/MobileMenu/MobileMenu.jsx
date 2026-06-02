@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
-import { AuthModal } from '../IpadMenu/AuthModal';
+import React, { useState } from "react";
+import { AuthModal } from "../IpadMenu/AuthModal";
+import { MobileNav } from "./MobileNav";
+import { MobileUserSection } from "./MobileUserSection";
 import styles from "./MobileMene.module.css";
 
 export function MobileMenu({ isOpen }) {
@@ -11,36 +13,18 @@ export function MobileMenu({ isOpen }) {
   return (
     <div className={`${styles.overlay} ${isOpen ? styles.isOpen : ""}`}>
       <div className={styles.content}>
-        <nav className={styles.navList}>
-          <ul className={styles.list}>
-            <li>Who we are</li>
-            <li>Contacts</li>
-            <li>Menu</li>
-          </ul>
-        </nav>
-        
-        <div className={styles.userSection}>
-          <div className={styles.profileIcon}>
-            <img className={styles.iconPlaceholder} src="./src/img/humen.png" alt="profile" />
-          </div>
+        <MobileNav />
 
-          {mobileUser ? (
-            <span className={styles.userNameText}>{mobileUser}</span>
-          ) : (
-            <button 
-              className={styles.signupBtn}
-              onClick={() => setIsAuthOpen(true)}
-            >
-              Sign Up
-            </button>
-          )}
-        </div>
+        <MobileUserSection
+          mobileUser={mobileUser}
+          setIsAuthOpen={setIsAuthOpen}
+        />
       </div>
 
       {isAuthOpen && (
-        <AuthModal 
-          onClose={() => setIsAuthOpen(false)} 
-          onRegister={(name) => setMobileUser(name)} 
+        <AuthModal
+          onClose={() => setIsAuthOpen(false)}
+          onRegister={(name) => setMobileUser(name)}
         />
       )}
     </div>
