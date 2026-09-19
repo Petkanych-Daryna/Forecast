@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import "./App.css";
 
+import { fetchWeather, fetchFavoriteCities } from "./redux/operations";
 import {
-  WeatherApi,
-  ForecastApi,
-  WeatherByCityApi,
-  ForecastByCityApi,
-} from "./components/MainWeather/WeatherApi";
+  getWeather,
+  getForecast,
+  getIsLoading,
+  getError,
+} from "./redux/selectors";
+
 import { MainWeather } from "./components/MainWeather/MainWeather";
 import { ChartForecast } from "./components/ChartForecast/ChartForecast";
 import { WeatherCard } from "./components/MainWeather/WeatherCard";
@@ -17,76 +20,69 @@ import { ListForecast } from "./components/ListForecast/ListForecast";
 import { InfoAboutPets } from "./components/InfoAboutPets/InfoAboutPets";
 import { NatureSlider } from "./components/Nature/NatureSlider";
 
-function App() {
-  const [data, setData] = useState({ weather: null, forecast: null });
+export default function App() {
+  const dispatch = useDispatch();
+  
+  const weather = useSelector(getWeather);
+  const forecast = useSelector(getForecast);
+  const isLoading = useSelector(getIsLoading);
+  const error = useSelector(getError);
+  
   const [show, setShow] = useState(false);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
-    navigator.geolocation.getCurrentPosition(
-      (pos) => {
-        const { latitude: lat, longitude: lon } = pos.coords;
-        Promise.all([WeatherApi(lat, lon), ForecastApi(lat, lon)])
-          .then(([w, f]) => setData({ weather: w, forecast: f }))
-          .catch((err) => console.error(err));
-      },
-      () => {
-        Promise.all([WeatherApi(50.45, 30.52), ForecastApi(50.45, 30.52)])
-          .then(([w, f]) => setData({ weather: w, forecast: f }))
-          .catch((err) => console.error(err));
-      },
-    );
-  }, []);
+    dispatch(fetchFavoriteCities());
 
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (pos) => {
+          const lat = pos?.coords?.latitude;
+          const lon = pos?.coords?.longitude;
+
+          if (typeof lat === "number" && typeof lon === "number") {
+            dispatch(fetchWeather({ lat, lon }));
+          } else {
+            dispatch(fetchWeather("Kyiv"));
+          }
+        },
+        () => dispatch(fetchWeather("Kyiv")),
+      );
+    } else {
+      dispatch(fetchWeather("Kyiv"));
+    }
+  }, [dispatch]);
+  
   const handleSearch = (city) => {
-    if (!city.trim()) return;
-
-    setError(null);
-
-    Promise.all([WeatherByCityApi(city), ForecastByCityApi(city)])
-      .then(([w, f]) => {
-        setData({ weather: w, forecast: f });
-      })
-      .catch((err) => {
-        console.error(err);
-        setError("Місто не знайдено. Спробуйте ще раз.");
-        alert("Місто не знайдено. Перевірте правильність написання.");
-      });
+    if (city.trim()) dispatch(fetchWeather(city));
   };
-
-  if (!data.weather)
-    return (
-      <h1 className="loading" style={{ fontSize: "30px" }}>
-        Завантаження...
-      </h1>
-    );
-
+  
   return (
     <div className="app">
       <Header />
-
       <Hero onSearch={handleSearch} />
 
+      {isLoading && <p style={{ textAlign: "center" }}>Завантаження...</p>}
       {error && <p style={{ color: "red", textAlign: "center" }}>{error}</p>}
 
-      <MainWeather
-        weather={data.weather}
-        onSeeMore={() => setShow(!show)}
-        isOpen={show}
-      />
+      {weather && (
+        <MainWeather
+          weather={weather}
+          onSeeMore={() => setShow(!show)}
+          isOpen={show}
+        />
+      )}
 
       {show && (
         <div className="details-section">
-          <WeatherCard weather={data.weather} />
-          <ChartForecast forecast={data.forecast} />
+          {weather && <WeatherCard weather={weather} />}
+          <ChartForecast forecast={forecast} />
           <ListForecast />
         </div>
       )}
+
       <InfoAboutPets />
       <NatureSlider />
       <Footer />
     </div>
   );
 }
-
-export default App;
